@@ -1,0 +1,43 @@
+﻿	<button class="items-rightside btn-reset menu-mobile-toggle d-lg-none">
+	<img src="/img/menu.svg" class="svg-icon">
+</button>
+<ul class="menu">
+	<button class="items-rightside btn-reset menu-mobile-close d-lg-none">
+		<img src="/img/close.svg" class="svg-icon">
+	</button>
+	<li class="menu-item current-menu-item">
+		<a href="/">
+		<img src="~/img/logo.png"/>
+		</a>
+	</li>
+	<li class="menu-item current-menu-item">
+		<a href="/" class="menu-link">صفحه اصلی</a>
+	</li>
+	<li class="menu-item">
+		<a href="/Content/blog" class="menu-link">مقالات</a>
+	</li>
+	<li class="menu-item">
+		<a href="/Content/video" class="menu-link">ویدیوها</a>
+	</li>
+	<li class="menu-item">
+		<a href="/Content/podcast" class="menu-link">پادکست ها</a>
+	</li>
+	<li class="menu-item">
+		<a href="/magzine" class="menu-link">آرشیو مجلات</a>
+	</li>
+    <li class="menu-item">
+        <div class="dropdown">
+            <a class="dropbtn">آرشیو مطالب</a>
+            <div class="dropdown-content">
+                @foreach (var item in Model.GetMenuContentGroup())
+                {
+                    <a href="/contentGroup/@item.UrlParam">@item.Title</a>
+                }
+            </div>
+        </div>
+    </li>
+	<li class="menu-item">
+		<a href="/login" class="menu-link">ورود</a>
+	</li>
+</ul>
+ 

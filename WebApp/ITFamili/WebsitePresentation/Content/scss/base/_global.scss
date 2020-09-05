@@ -1,0 +1,109 @@
+::selection {
+  background: $redColor;
+  color: white;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  color: white;
+  background: $bgColor;
+  font-family: $fontPrimary;
+  text-align: right;
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: $break-medium) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: $break-small) {
+  html {
+    font-size: 85%;
+  }
+}
+
+main.main-site-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .content {
+    @media screen and (max-width: $break-medium) {
+      overflow-x: hidden;
+    }
+    
+    flex: 1 0 auto;
+  }
+  .site-footer {
+    flex-shrink: 0;
+  }
+}
+
+a {
+  color: white;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+button,
+input,
+textarea {
+  border: none;
+  outline: 0 !important;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+figure {
+  position: relative;
+}
+picture {
+  position: relative;
+  display: block;
+  &:after {
+    content: '';
+    display: block;
+  }
+  img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    max-width: unset;
+    display: block;
+  }
+}
+.btn-reset {
+  outline: 0 !important;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.svg-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.no-shadow {
+  box-shadow: 0 0 0 0 transparent !important;
+}
+.h-0 {
+  height: 0;
+}

@@ -1,0 +1,59 @@
+.offer-box {
+  border-radius: 35px;
+  margin: 1rem;
+
+  .clipped-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    clip-path: url(#clip-path-image);
+  }
+  .offer-box-content {
+    background-color: white;
+    padding: 1rem;
+    padding-top: 6rem;
+    margin-top: -5rem;
+    border-radius: 35px;
+    .offerbox-title {
+      color: $redColor;
+      font-size: 1.1rem;
+      border-right: 2px solid #b7b7b7;
+      padding-right: 0.5rem;
+    }
+    .offers-text-slider {
+        height: 100px;
+        overflow: hidden;
+        margin-top: 1rem;
+        .offerbox-text {
+            
+            font-weight: 100;
+            color: black;
+            font-size: 0.8rem;
+            text-overflow: ellipsis;
+          }
+          
+    }
+    .offers-text-slider-pagination {
+        margin-top: 1rem;
+        margin-bottom: .7rem;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        
+        .swiper-pagination-bullet {
+            margin-right: .3rem;
+            padding: .25rem;
+            border: 1px solid $redColor;
+            background-color: $redColor;
+            opacity: 1;
+        }
+        .swiper-pagination-bullet.swiper-pagination-bullet-active {
+            background-color: white;
+        }
+    }
+    
+  }
+}

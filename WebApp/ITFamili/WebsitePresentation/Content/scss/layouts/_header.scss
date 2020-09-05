@@ -1,0 +1,89 @@
+.site-header {
+    .main-site-menu {
+        position: fixed;
+        right: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 1rem 15px;
+        display: flex;
+        justify-content: space-between;
+        background-color: transparent;
+        box-shadow: 0px 0px 9px -3px transparent;
+        transition: .2s;
+        @media screen and (max-width: $break-medium) {
+            padding: 1rem 0;
+        }
+        .menu-mobile-toggle {
+            .svg-icon {
+                fill: white;
+                margin-right: 2rem;
+            }
+        }
+        .menu {
+            width: calc(100% - 100px);
+            
+            .menu-item {
+                display: inline-block;
+                margin-left: .5rem;
+                .menu-link {
+                    padding: .5rem 1rem;
+                    display: inline-block;
+                    border-radius: 2rem;
+                    transition: .2s;
+                    font-weight: 100;
+                    &:hover {
+                        background: rgba(102, 56, 157, .5);
+                    }
+                }
+            }
+            .menu-item.current-menu-item {
+                .menu-link {
+                    background: rgba(102, 56, 157, .5);
+                }
+            }
+            @media screen and (max-width: $break-medium) {
+                visibility: hidden;
+                opacity: 0;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $bgColor;
+                transform: translateX(100%);
+                transition: .6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+                .menu-item {
+                    display: block;
+                    text-align: center;
+                    border-bottom: 1px solid rgba(255,255,255,.4);
+                    padding: .75rem;
+                }
+                .menu-mobile-close {
+                    fill: white;
+                    margin: 1rem;
+                }
+            }
+        }
+        .menu.active {
+            @media screen and (max-width: $break-medium) {
+                visibility: visible;
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .change-language {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            
+        }
+    }
+    .main-site-menu.dark {
+        background: rgba(46, 25, 94, 0.95);
+        box-shadow: 0px 0px 9px -3px #000000;
+    }
+}
+.main-site-menu-container {
+    position: relative;
+}

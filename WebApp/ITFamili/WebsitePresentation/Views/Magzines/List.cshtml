@@ -1,0 +1,54 @@
+﻿@model ViewModels.MagzineListViewModel
+@{
+    ViewBag.Title = "آرشیو مجلات";
+}
+
+
+<section class="page-title">
+    <div class="container text-center">
+        <h1>
+            آرشیو مجلات
+        </h1>
+        <div>
+            <span><a href="/">صفحه اصلی</a></span>
+            /
+            <span>آرشیو مجلات</span>
+        </div>
+    </div>
+</section>
+
+<section class="magazine-archive-section">
+
+    @*<div class="container page-header-in">
+        <div class="row">
+            <div class="col-12">
+                <h2>
+                    آرشیو مجلات
+                </h2>
+            </div>
+        </div>
+    </div>*@
+    <div class="container">
+        <div class="row">
+            <div class="col-12 magazine-archive-slider-container">
+                <div class="shapebg">
+                </div>
+                <div class="swiper-container magazine-archive-slider">
+                    <div class="swiper-wrapper">
+                        @foreach (var magzine in Model.Magzines)
+                        {
+                            <a href="/magzine/@magzine.UrlParam" class="swiper-slide magazine-archive-slide">
+                                <div class="magazine-box">
+                                    <img src="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@magzine.ImageUrl"
+                                         class="img-fluid d-flex mx-auto magazine-image">
+                                </div>
+                            </a>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="particles-js"></div>
+</section>

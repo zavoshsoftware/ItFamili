@@ -1,0 +1,115 @@
+.numeral-slider-navigation-container {
+  display: flex;
+  margin: 1rem 0 2rem 0;
+  @media screen and (max-width: $break-small) {
+    margin-bottom: 6rem;
+  }
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  .numeral-slide-button-next,
+  .numeral-slide-button-prev {
+    outline: 0 !important;
+    color: $bgColor;
+    background: white;
+    border: 1px solid $bgColor;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.25s;
+    margin: 0.4rem 0.2rem;
+    &:hover {
+      background: $bgColor;
+      .svg-icon {
+        fill: white;
+      }
+    }
+    .svg-icon {
+      width: 1rem;
+      height: 1rem;
+      fill: $bgColor;
+    }
+  }
+  .numeral-slide-button-next {
+    .svg-icon {
+      transform: rotate(180deg);
+    }
+  }
+  .swiper-button-disabled {
+      opacity: .4;
+      pointer-events: none;
+      &:hover {
+          
+      }
+  }
+  .numeral-slider-pagination {
+    display: flex;
+    justify-content: center;
+    direction: ltr;
+
+    .swiper-pagination-bullet {
+      outline: 0 !important;
+      user-select: none;
+      width: 1.75rem;
+      height: 1.75rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      color: $bgColor;
+      background: white;
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      opacity: 1;
+      border: 1px solid $bgColor;
+      margin: 0.4rem 0.2rem;
+      transition: 0.25s;
+      &:hover {
+        color: white;
+        background: $bgColor;
+      }
+    }
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      color: white;
+      background: $bgColor;
+    }
+  }
+}
+.numeral-slider-navigation-container.white {
+  .numeral-slide-button-next,
+  .numeral-slide-button-prev {
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    &:hover {
+      background: white;
+      .svg-icon {
+        fill: $redColor;
+      }
+    }
+    .svg-icon {
+      width: 1rem;
+      height: 1rem;
+      fill: white;
+    }
+  }
+  .numeral-slider-pagination {
+    .swiper-pagination-bullet {
+      color: white;
+      background: transparent;
+      border: 1px solid white;
+      &:hover {
+        color: $redColor;
+        background: white;
+      }
+    }
+    .swiper-pagination-bullet.swiper-pagination-bullet-active {
+      color: $redColor;
+      background: white;
+    }
+  }
+}

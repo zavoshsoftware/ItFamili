@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F072C5D9-47FF-475F-997B-4397673584E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="DatabaseContextInitializer.cs" />
+    <Compile Include="DatabaseContextInitializerBeforeTheFirstRelease.cs" />
+    <Compile Include="Entities\ActivationCode.cs" />
+    <Compile Include="Entities\ArAsset.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Content.cs" />
+    <Compile Include="Entities\ContentComment.cs" />
+    <Compile Include="Entities\ContentGroup.cs" />
+    <Compile Include="Entities\ContentLike.cs" />
+    <Compile Include="Entities\ContentType.cs" />
+    <Compile Include="Entities\Faq.cs" />
+    <Compile Include="Entities\Magzine.cs" />
+    <Compile Include="Entities\Province.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\SupportRequest.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\VersionHistory.cs" />
+    <Compile Include="Migrations\202002240934418_V01.cs" />
+    <Compile Include="Migrations\202002240934418_V01.designer.cs">
+      <DependentUpon>202002240934418_V01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241040559_V02.cs" />
+    <Compile Include="Migrations\202002241040559_V02.designer.cs">
+      <DependentUpon>202002241040559_V02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002241332193_V03.cs" />
+    <Compile Include="Migrations\202002241332193_V03.designer.cs">
+      <DependentUpon>202002241332193_V03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002272305364_V04.cs" />
+    <Compile Include="Migrations\202002272305364_V04.designer.cs">
+      <DependentUpon>202002272305364_V04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002281015436_V05.cs" />
+    <Compile Include="Migrations\202002281015436_V05.designer.cs">
+      <DependentUpon>202002281015436_V05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021353133_V06.cs" />
+    <Compile Include="Migrations\202003021353133_V06.designer.cs">
+      <DependentUpon>202003021353133_V06.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003021413348_V07.cs" />
+    <Compile Include="Migrations\202003021413348_V07.designer.cs">
+      <DependentUpon>202003021413348_V07.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003070937544_V08.cs" />
+    <Compile Include="Migrations\202003070937544_V08.designer.cs">
+      <DependentUpon>202003070937544_V08.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003071016427_V09.cs" />
+    <Compile Include="Migrations\202003071016427_V09.designer.cs">
+      <DependentUpon>202003071016427_V09.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003080706142_V10.cs" />
+    <Compile Include="Migrations\202003080706142_V10.designer.cs">
+      <DependentUpon>202003080706142_V10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004041700394_V11.cs" />
+    <Compile Include="Migrations\202004041700394_V11.designer.cs">
+      <DependentUpon>202004041700394_V11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007090824571_V12.cs" />
+    <Compile Include="Migrations\202007090824571_V12.designer.cs">
+      <DependentUpon>202007090824571_V12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007141718099_V13.cs" />
+    <Compile Include="Migrations\202007141718099_V13.designer.cs">
+      <DependentUpon>202007141718099_V13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{2be50a0a-f535-47d5-a891-448a21bcb91f}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002240934418_V01.resx">
+      <DependentUpon>202002240934418_V01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241040559_V02.resx">
+      <DependentUpon>202002241040559_V02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241332193_V03.resx">
+      <DependentUpon>202002241332193_V03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002272305364_V04.resx">
+      <DependentUpon>202002272305364_V04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002281015436_V05.resx">
+      <DependentUpon>202002281015436_V05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021353133_V06.resx">
+      <DependentUpon>202003021353133_V06.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003021413348_V07.resx">
+      <DependentUpon>202003021413348_V07.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003070937544_V08.resx">
+      <DependentUpon>202003070937544_V08.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003071016427_V09.resx">
+      <DependentUpon>202003071016427_V09.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003080706142_V10.resx">
+      <DependentUpon>202003080706142_V10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004041700394_V11.resx">
+      <DependentUpon>202004041700394_V11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007090824571_V12.resx">
+      <DependentUpon>202007090824571_V12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007141718099_V13.resx">
+      <DependentUpon>202007141718099_V13.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>

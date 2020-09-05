@@ -1,0 +1,24 @@
+$fontPrimary: 'Vazir', sans-serif;
+$fontSecondary: 'Source Sans Pro', sans-serif;
+$bgColor: #523b88;
+$redColor: #e34756;
+$break-small: 768px;
+$break-medium: 992px;
+
+$gradients: () !default;
+$gradients: map-merge(
+  (
+    purple: linear-gradient(-90deg, #322e3b 100%, transparent 100%)
+  ),
+  $gradients
+);
+
+@mixin bg-gradient($parent, $gradient) {
+  #{$parent} {
+    background: $gradient;
+  }
+}
+
+@each $gradient, $value in $gradients {
+  @include bg-gradient('.bg-gradient-#{$gradient}', $value);
+}

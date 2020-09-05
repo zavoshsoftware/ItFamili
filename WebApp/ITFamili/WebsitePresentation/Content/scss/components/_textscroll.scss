@@ -1,0 +1,18 @@
+.text-with-scroll {
+    max-height: 220px;
+    overflow-y: hidden;
+    margin-bottom: 2rem;
+    font-size: .9rem;
+    font-weight: 100;
+    direction: ltr;
+    .content-inside {
+        direction: rtl;
+    }
+}
+.mCSB_scrollTools .mCSB_draggerRail {
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.text-with-scroll.margin-minus {
+    margin-top: -2rem;
+}

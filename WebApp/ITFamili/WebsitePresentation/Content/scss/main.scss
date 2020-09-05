@@ -1,0 +1,25 @@
+// Main
+
+@import 'abstracts/variables';
+@import 'base/global';
+
+
+// Layouts
+
+@import 'layouts/header';
+@import 'layouts/footer';
+
+
+// Components
+
+@import 'components/section-title';
+@import 'components/textscroll';
+@import 'components/magazine-image';
+@import 'components/offer-box';
+@import 'components/article-box';
+@import 'components/numeral-navigation';
+@import 'components/magazine-box';
+
+// Pages
+
+@import 'pages/home';

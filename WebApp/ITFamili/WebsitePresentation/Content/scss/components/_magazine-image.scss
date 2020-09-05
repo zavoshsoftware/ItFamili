@@ -1,0 +1,16 @@
+.magazine-image-container {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    .magazine-img {
+        border-radius: 35px;
+        max-width: 65%;
+    }
+    .shapebg-img {
+        img {
+            position: absolute;
+            top: -20px;
+            width: 100%;
+            z-index: -1;
+        }
+    }
+}

@@ -1,0 +1,133 @@
+﻿
+
+/*  Login*/
+
+.login {
+    background-color: #6044a7;
+    text-align: right;
+    direction: rtl;
+    margin-top: 25px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+    .login .login-header {
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #40f5d1;
+    }
+
+    .login .login-form {
+        padding: 25px 0;
+    }
+
+        .login .login-form label {
+            color: #fff;
+        }
+
+.input-group > .input-group-prepend > .input-group-text {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group-prepend {
+    margin-right: auto;
+    margin-left: -1px;
+}
+
+.input-group > .form-control:not(:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+a.forget-pass {
+    float: left;
+    color: #080606;
+    border-bottom: 1px dotted #080606;
+}
+
+    a.forget-pass:hover {
+        text-decoration: none;
+    }
+
+.btn-savadimo-login {
+    background-color: #080606;
+    padding: 7px 10px;
+    text-align: center;
+    direction: rtl;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    border-color: #080606;
+    width: 100%;
+}
+
+.login-form .form-group p {
+    margin: 0;
+    padding: 0;
+}
+
+.login-footer {
+    padding: 25px 0;
+    background-color: #080606;
+    margin-bottom: 25px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    direction: rtl;
+    color: #fff;
+}
+
+    .login-footer label {
+        color: #fff;
+    }
+
+    .login-footer a {
+        color: #6044a7;
+        border-bottom: 1px dotted #080606;
+    }
+
+        .login-footer a:hover {
+            text-decoration: none;
+        }
+
+.login-form p {
+    color: #fff;
+}
+
+    .login-form p a {
+        color: #080606;
+        border-bottom: 1px dotted #080606;
+    }
+
+        .login-form p a:hover {
+            text-decoration: none;
+        }
+
+.alert-savadimo {
+    background-color: #080606;
+    border-radius: 5px;
+    color: #fff;
+    border: 1px solid #0e4147;
+}
+
+
+#error-box-login, #otp-form, #error-box-register, #register-form, #error-box-otp {
+    display: none;
+}
+
+.loading-sec {
+    display: none;
+    text-align: center
+}
+
+.login input.form-control {
+    padding: 22px 10px;
+}
+
+/*login*/

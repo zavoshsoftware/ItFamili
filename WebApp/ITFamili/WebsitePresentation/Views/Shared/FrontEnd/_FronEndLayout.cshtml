@@ -1,0 +1,59 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/Content/css/swiper.min.css">
+	<link rel="stylesheet" href="/Content/css/jquery.mCustomScrollbar.min.css">
+	@RenderSection("headSection", required: false)
+
+
+	<link rel="stylesheet" href="/Content/scss/main.css">
+	<link href="https://cdn.rawgit.com/rastikerdar/vazir-font/v22.1.0/dist/font-face.css" rel="stylesheet"
+				type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,900&display=swap" rel="stylesheet">
+
+	<script src="/Scripts/scrollreveal.min.js"></script>
+
+	<title>@ViewBag.Title | ITFamili</title>
+	
+</head>
+<body>
+	<main class="main-site-container">
+		<div class="content">
+			<header class="site-header">
+				<div class="container main-site-menu-container">
+					
+					<nav class="main-site-menu menu-bg">
+						<div class="container">
+							@Html.Partial("FrontEnd/_MenuPartial")
+						</div>
+</nav>
+			
+
+				</div>
+			</header>
+			<div class="main-content">
+				@RenderBody()
+			</div>
+		</div>
+		@Html.Partial("FrontEnd/_FooterPartial")
+	</main>
+
+	<script src="/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="/Scripts/bootstrap.bundle.min.js"></script>
+	<script src="/Scripts/swiper.min.js"></script>
+	<script src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/Scripts/particles.min.js"></script>
+<script src="/Scripts/main.js"></script>
+	
+@RenderSection("scripts", required: false)
+
+</body>
+</html>

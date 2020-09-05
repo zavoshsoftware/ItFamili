@@ -1,0 +1,68 @@
+﻿@model ViewModels.ContentListViewModel
+
+@section headSection
+{
+
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+}
+
+<section class="page-title">
+    <div class="container text-center">
+        <h1>
+           @ViewBag.Title
+        </h1>
+        <div>
+            <span><a href="/">صفحه اصلی</a></span>
+            /
+            <span>@ViewBag.Title</span>
+        </div>
+    </div>
+</section>
+<section class="magazine-archive-section">
+
+    @*<div class="container page-header-in">
+            <div class="row">
+                <div class="col-12">
+                    <h2>
+                        آرشیو مطالب
+                    </h2>
+                </div>
+            </div>
+        </div>*@
+    <div class="container">
+        <div class="row">
+            @foreach (var content in Model.Contents)
+            {
+                <div class="col-md-3">
+                    <div class="content-card">
+                        <div class="content-card-img">
+                            <a href="/Content/@content.Content.ContentType.UrlParam/@content.Content.UrlParam">
+                                <img src="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@content.Content.ImageUrl" />
+                            </a>
+                        </div>
+                        <div class="content-card-title">
+                            <a href="/Content/@content.Content.ContentType.UrlParam/@content.Content.UrlParam">	@content.Content.Title</a>
+                        </div>
+
+                        <div class="content-card-info">
+                            <div class="content-numbers">
+                                @content.CommentCount <i class="fa fa-comment"></i>
+                                @content.LikeCount <i class="fa fa-heart"></i>
+                            </div>
+                            <div class="content-date">
+                                @content.Content.CreationDateStr
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <a href="/Content/@content.Content.ContentType.UrlParam/@content.Content.UrlParam" class="btn btn-primary">مشاهده</a>
+                    </div>
+
+                </div>}
+
+
+
+        </div>
+    </div>
+
+</section>

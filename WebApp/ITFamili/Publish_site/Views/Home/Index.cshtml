@@ -1,0 +1,570 @@
+﻿@model ViewModels.HomeViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/Content/css/swiper.min.css">
+	<link rel="stylesheet" href="/Content/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="/Content/scss/main.css">
+	<link href="https://cdn.rawgit.com/rastikerdar/vazir-font/v22.1.0/dist/font-face.css" rel="stylesheet"
+	      type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,900&display=swap" rel="stylesheet">
+
+	<script src="/Scripts/scrollreveal.min.js"></script>
+	<title>مجله خانواده IT</title>
+	<meta name="description" content="با استفاده از وب سایت و اپلیکیشن موبایل مجله IT می توانید از جدیدترین محتواها و نسخه های مجله مطلع شوید."/>
+</head>
+<body>
+	<main class="main-site-container">
+		<div class="content">
+			<header class="site-header">
+				<div class="container main-site-menu-container">
+					<nav class="main-site-menu">
+						<button class="items-rightside btn-reset menu-mobile-toggle d-lg-none">
+							<img src="/img/menu.svg" class="svg-icon">
+						</button>
+						<ul class="menu">
+							<button class="items-rightside btn-reset menu-mobile-close d-lg-none">
+								<img src="/img/close.svg" class="svg-icon">
+							</button>
+							<li class="menu-item current-menu-item">
+								<a href="/" class="menu-link">صفحه اصلی</a>
+							</li>
+							<li class="menu-item">
+								<a href="/Content/blog" class="menu-link">مقالات</a>
+							</li>
+							<li class="menu-item">
+								<a href="/Content/video" class="menu-link">ویدیوها</a>
+							</li>
+							<li class="menu-item">
+								<a href="/Content/podcast" class="menu-link">پادکست ها</a>
+							</li>
+							<li class="menu-item">
+								<a href="/magzine" class="menu-link">آرشیو مجلات</a>
+							</li>	
+                            <li class="menu-item">
+                                <div class="dropdown">
+                                    <a class="dropbtn">آرشیو مطالب</a>
+                                    <div class="dropdown-content">
+                                        @foreach (var item in Model.GetMenuContentGroup())
+                                        {
+                                            <a href="/contentGroup/@item.UrlParam">@item.Title</a>
+                                        }
+                                       
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="menu-item">
+								<a href="/login" class="menu-link">ورود</a>
+							</li>
+
+						</ul>
+				 
+					</nav>
+				</div>
+			</header>
+			<div class="main-content">
+
+				<section class="section-head">
+					<div class="section-head-bg">
+						<div class="img-bg"></div>
+						<div class="overlay"></div>
+					</div>
+					<figure class="leftside-image">
+						<picture>
+							<img src="/img/01-header/photo.png">
+						</picture>
+					</figure>
+					<figure class="rightside-image">
+						<picture>
+							<img src="/img/01-header/dots-right.png">
+						</picture>
+					</figure>
+					<div class="container head-section-content">
+						<div class="row head-section-content-row justify-content-start">
+							<div class="col-lg-4 col-12 head-section-rightside">
+								<div class="title-head">
+									<h1>IT<br>Famili</h1>
+									<p>Technology Magazine</p>
+								</div>
+								@*<div class="icons-head">
+									<ul>
+										<li>
+											<a href="#0">
+												<img src="/img/01-header/icons/search.png">
+											</a>
+											<a href="#0">
+												<img src="/img/01-header/icons/email.png">
+											</a>
+											<a href="#0">
+												<img src="/img/01-header/icons/location.png">
+											</a>
+											<a href="#0">
+												<img src="/img/01-header/icons/phone.png">
+											</a>
+										</li>
+									</ul>
+								</div>*@
+							</div>
+							<div class="col-lg-1 d-none d-lg-flex"></div>
+							<div class="d-flex col-lg-4 col-12 justify-content-center head-section-leftside">
+								<ul class="links-head">
+									<li>
+										<a href="/content/blog">
+											<span>
+												اخبار روز
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="https://sibche.com/applications/it-famili">
+											<span>
+												اپلیکیشن IOS
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="/magzine">
+											<span>
+												آخرین شماره نشریه
+											</span>
+										</a>
+									</li>
+									<li>
+										<a href="https://play.google.com/store">
+											<span>
+											اپلیکیشن اندروید
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<figure class="lines-bottom">
+						<picture>
+							<img src="/img/01-header/lines-header-bottom.png">
+						</picture>
+					</figure>
+				</section>
+
+				<section class="section-magazine">
+					<div class="container">
+						<div class="row justify-content-around">
+							<div class="col-lg-5 col-12">
+								<div class="section-title-container right">
+									<span class="number">01</span>
+									<h2 class="title">
+										@Model.LatestMagzine.Title
+									</h2>
+								</div>
+								<div class="text-with-scroll mCustomScrollbar margin-minus" dir="ltr">
+									<div class="content-inside">
+										@Html.Raw(Model.LatestMagzine.SummerySite)
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 justify-content-end">
+								<div class="magazine-image-container">
+									<img src="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@Model.LatestMagzine.ImageUrl" class="magazine-img d-block img-fluid mx-auto"
+											 alt="@Model.LatestMagzine.Title">
+									<div class="shapebg-img">
+										<img src="/img/02-magazine/shape.svg" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="offers-section">
+					<div class="gradient-bg"></div>
+					<figure class="rightside-image">
+						<picture>
+							<img src="/img/03-offers/shape-right.png">
+						</picture>
+					</figure>
+					<div class="container offers-section-content">
+						<div class="row justify-content-end mt-5">
+							<div class="col-4">
+								<div class="section-title-container left">
+									<span class="number">02</span>
+									<h2 class="title">
+										پیشنهادات
+									</h2>
+								</div>
+							</div>
+						</div>
+						<svg class="svg h-0">
+							<clipPath id="clip-path-image" clipPathUnits="userSpaceOnUse">
+								<path class="st0"
+											d="M47.5,3.2c51.6,12.1,144.3,39,77.3,101.6C57.7,167.4,33.5,144.5,8.7,69.4C-16.2-5.7,17.4-3.9,47.5,3.2z" />
+							</clipPath>
+						</svg>
+						
+						<div class="offers-slider-container">
+							<div class="swiper-container offers-slider">
+								<div class="swiper-wrapper">
+								@foreach (var content in Model.TopContents)
+								{
+									<div class="swiper-slide offer-slide">
+										<div class="offer-box">
+											<a href="/Content/@content.ContentType.UrlParam/@content.UrlParam" class="clipped-image"
+											   style="background-image: url(/img/03-offers/logo.jpg);"></a>
+											<div class="offer-box-content">
+												<a href="/Content/@content.ContentType.UrlParam/@content.UrlParam">
+													<h3 class="offerbox-title">@content.Title</h3>
+												</a>
+
+												<div class="swiper-container offers-text-slider">
+													<div class="swiper-wrapper">
+														<div class="swiper-slide">
+															<p class="offerbox-text">
+																@content.Summery
+															</p>
+														</div>
+											 
+													</div>
+												</div>
+									 
+											</div>
+										</div>
+									</div>
+								}
+								</div>
+
+							</div>
+							<div class="offers-slide-navigation-container">
+								<div class="offers-slide-button-next">
+									<img src="img/03-offers/arrow-slider.svg" class="svg-icon" alt="Next">
+								</div>
+								<div class="offers-slide-button-prev">
+									<img src="img/03-offers/arrow-slider.svg" class="svg-icon" alt="Previous">
+								</div>
+
+							</div>
+						</div>
+
+						@*<div class="offers-slider-container">
+							<div class="swiper-container offers-slider">
+								<div class="swiper-wrapper">
+									@foreach (var content in Model.TopContents)
+									{
+											<div class="swiper-slide offer-slide">
+												<div class="offer-box">
+													<div class="clipped-image"
+															 style="background-image: url(/img/03-offers/logo.jpg);"></div>
+													<div class="offer-box-content">
+														<h3 class="offerbox-title">@content.Title</h3>
+														<div class="swiper-container offers-text-slider">
+															<div class="swiper-wrapper">
+																<div class="swiper-slide">
+																	<p class="offerbox-text">
+																	@content.Summery
+																	</p>
+																</div>
+															 
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+									}
+									
+								</div>
+
+							</div>
+							<div class="offers-slide-navigation-container">
+								<div class="offers-slide-button-next">
+									<img src="/img/03-offers/arrow-slider.svg" class="svg-icon" alt="Next">
+								</div>
+								<div class="offers-slide-button-prev">
+									<img src="/img/03-offers/arrow-slider.svg" class="svg-icon" alt="Previous">
+								</div>
+
+							</div>
+						</div>*@
+						<div class="freespace"></div>
+
+					</div>
+					<figure class="bottom-image">
+						<picture>
+							<img src="/img/03-offers/bottom-shape.png">
+						</picture>
+					</figure>
+					<div class="container">
+						<div class="row justify-content-around">
+							<div class="col-lg-9 col-12">
+								<div class="section-title-container right">
+									<span class="number">03</span>
+									<h2 class="title">
+										مقالات
+									</h2>
+								</div>
+							</div>
+						</div>
+				</div>
+			</section>
+
+			<section class="articles-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="swiper-container articles-slider">
+								<div class="swiper-wrapper">
+									@foreach (var blog in Model.LatestBlogs)
+									{
+											<div class="swiper-slide article-slide">
+												<div class="article-box">
+													<div class="article-box-title-container">
+														<h3 class="article-box-title">
+													@blog.Title
+														</h3>
+													</div>
+													<div class="article-box-content">
+														<div class="article-box-content-insider">
+															<p>
+														@blog.Summery
+															</p>
+														</div>
+														<div class="article-box-foot">
+															<ul>
+																<li>
+																	<a href="/Content/@blog.ContentType.UrlParam/@blog.UrlParam">
+
+																		<img src="/img/04-articles/icons/like.svg"
+																				 class="svg-icon">
+																	</a>
+																</li>
+																<li>
+																	<a href="/Content/@blog.ContentType.UrlParam/@blog.UrlParam">
+
+																		<img src="/img/04-articles/icons/bookmark.svg"
+																				 class="svg-icon">
+																	</a>
+																</li>
+																<li>
+																	<a href="/Content/@blog.ContentType.UrlParam/@blog.UrlParam">
+
+																		<img src="/img/04-articles/icons/send.svg"
+																				 class="svg-icon">
+																	</a>
+																</li>
+																<li class="rightside-list-item">
+																	<a href="/Content/@blog.ContentType.UrlParam/@blog.UrlParam">
+																		<img src="/img/04-articles/icons/hamberger.svg"
+																				 class="svg-icon">
+																	</a>
+																</li>
+															</ul>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+									}
+									
+								 
+									</div>
+								</div>
+
+								<div class="article-slider-navigation-container">
+									<div class="article-slide-button-next">
+										<img src="/img/03-offers/arrow-slider.svg" class="svg-icon" alt="Next">
+									</div>
+									<div class="article-slider-pagination"></div>
+
+									<div class="article-slide-button-prev">
+										<img src="/img/03-offers/arrow-slider.svg" class="svg-icon" alt="Previous">
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="magazine-archive-section">
+					<figure class="rightside-image">
+						<picture>
+							<img src="/img/05-magazines-archive/lines-top-right.png">
+						</picture>
+					</figure>
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="section-title-container left red">
+									<span class="number">04</span>
+									<h2 class="title">
+										آرشیو مجلات
+									</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-12 magazine-archive-slider-container">
+								<div class="shapebg">
+								</div>
+								<div class="swiper-container magazine-archive-slider">
+									<div class="swiper-wrapper">
+										@foreach (var magzine in Model.LateMagzines)
+										{
+											<a href="/magzine/@magzine.UrlParam" class="swiper-slide magazine-archive-slide">
+												<div class="magazine-box">
+													<img src="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@magzine.ImageUrl"
+													     class="img-fluid d-flex mx-auto magazine-image">
+												</div>
+											</a>
+										}
+									
+								 
+									</div>
+									<!-- Add Pagination -->
+
+								</div>
+								<div class="numeral-slider-navigation-container white">
+									<div class="numeral-slide-button-next magazine-archive-slide-button-next">
+										<img src="/img/03-offers/arrow-slider.svg" class="svg-icon" alt="Next">
+									</div>
+									<div class="numeral-slider-pagination magazine-archive-slider-pagination"></div>
+
+									<div class="numeral-slide-button-prev magazine-archive-slide-button-prev">
+										<img src="/img/03-offers/arrow-slider.svg" class="svg-icon" alt="Previous">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="particles-js"></div>
+
+				</section>
+
+				<section class="customers-club-section">
+					<div class="section-overlay-gradient">
+					</div>
+					<figure class="top-shape">
+						<picture>
+							<img src="/img/06-customers-club/top-shape.png">
+						</picture>
+					</figure>
+					<div class="container">
+						<div class="row justify-content-around">
+							<div class="col-lg-5 col-12">
+								<div class="section-title-container right purple">
+									<span class="number">05</span>
+									<h2 class="title">
+										باشگاه مشتریان
+									</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+					<figure class="rightside-image">
+						<picture>
+							<img src="/img/06-customers-club/green-shape.svg">
+						</picture>
+					</figure>
+					<div class="container customers-club-container">
+						<div class="row">
+							<div class="col-lg-4 links-container">
+								<div class="register-link-container">
+									<a href="#0" class="register-link">
+										<img src="/img/06-customers-club/icons/register.svg" class="svg-icon">
+										<span>عضویت</span>
+									</a>
+								</div>
+
+							 
+							</div>
+							<div class="col-lg-8 login-container">
+								<div class="login-form-container" id="register-form">
+									<div class="login-head">
+										<h4>ثبت نام در اپلیکیشن</h4>
+										<img src="/img/06-customers-club/icons/login.svg" class="svg-icon">
+
+									</div>
+									<div>
+										<div class="input-container">
+											<img src="/img/06-customers-club/icons/user.svg" class="svg-icon">
+											<input type="text" id="txtFullName" placeholder="نام و نام خانوادگی">
+										</div>
+										<div class="input-container">
+											<img src="/img/icon-mobile.png" class="svg-icon">
+											<input type="text" id="txtCellNumber" placeholder="شماره موبایل">
+										</div>
+
+										<div class="alert alert-danger" id="error-register"></div>
+
+										<div class="login-button-container">
+											<button type="button" class="btn-reset login-button" onclick="RegisterUser();">
+												<img src="/img/06-customers-club/icons/hand.svg" class="svg-icon">
+											</button>
+										</div>
+									</div>
+								</div>
+								
+								<div class="login-form-container" id="activate-form">
+									<div class="login-head">
+										<h4>فعال سازی</h4>
+										<img src="/img/06-customers-club/icons/login.svg" class="svg-icon">
+
+									</div>
+									<div>
+										<div class="input-container">
+											<img src="/img/06-customers-club/icons/lock.svg" class="svg-icon">
+											<input type="text" id="txtActivationCode" placeholder="کد فعال سازی">
+										</div>
+									 
+										<div class="alert alert-danger" id="error-activate"></div>
+										<div class="alert alert-success" id="success-activate">حساب کاربری شما با موفقیت ایجاد شد و می توانید از امکانات اپلیکیشن موبایل خانواده IT استفاده نمایید</div>
+
+										<div class="login-button-container">
+											<button type="button" class="btn-reset login-button" onclick="ActiveUser();">
+												<img src="/img/06-customers-club/icons/hand.svg" class="svg-icon">
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<figure class="lines-bottom">
+						<picture>
+							<img src="/img/06-customers-club/lines-bottom.png">
+						</picture>
+					</figure>
+				</section>
+
+		 
+			</div>
+		</div>
+	@Html.Partial("FrontEnd/_FooterPartial")
+
+	</main>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery fScriptsst, then Bootstrap Bundle JS -->
+	<script src="/Scripts/jquery-3.4.1.min.js"></script>
+	<script src="/Scripts/bootstrap.bundle.min.js"></script>
+	<script src="/Scripts/swiper.min.js"></script>
+	<script src="/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/Scripts/particles.min.js"></script>
+<script src="/Scripts/main.js"></script>
+
+	<script src="~/Scripts/custom.js"></script>
+ 
+</body>
+</html>
+

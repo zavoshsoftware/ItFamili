@@ -1,0 +1,178 @@
+﻿@model ViewModels.ContentDetailViewModel
+@*@{
+		ViewBag.Title = Model.Content.PageTitleTag;
+}*@
+
+
+<section class="page-title">
+    <div class="container text-center">
+        <h1>
+            @Model.Content.Title
+        </h1>
+        <div>
+            <span><a href="/">صفحه اصلی</a></span>
+            /
+            <span><a href="/Content/blog">آرشیو مطالب</a></span>
+            /
+            <span>
+                @Model.Content.Title
+            </span>
+        </div>
+    </div>
+</section>
+
+<section class="magazine-archive-section">
+
+	@*<div class="container page-header-in">
+		<div class="row">
+			<div class="col-12">
+				<h2>
+					@Model.Content.Title
+				</h2>
+			</div>
+		</div>
+	</div>*@
+	<div class="container content-detail">
+		<div class="row">
+			<div class="col-md-12">
+				@if (Model.Content.ContentType.UrlParam == "blog")
+				{
+						<div class="blogContent">
+							@Html.Raw(Model.Content.BodySite)
+						</div>
+				}
+				@if (Model.Content.ContentType.UrlParam == "video")
+				{
+					<div class="row">
+						<div class="col-md-6">
+							@Html.Raw(Model.Content.BodySite)
+						</div>
+						<div class="col-md-6">
+							<video width="100%" controls>
+								<source src="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@Model.Content.FileUrl" type="video/mp4">Your browser does not support HTML5 video.
+							</video>
+
+						</div>
+					</div>
+						 
+				}
+
+				@if (Model.Content.ContentType.UrlParam == "podcast")
+				{
+					<div class="row">
+						<div class="col-md-6">
+							@Html.Raw(Model.Content.BodySite)
+						</div>
+						<div class="col-md-6">
+							<audio controls>
+								<source src="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@Model.Content.FileUrl" type="audio/mp3">
+								Your browser does not support HTML5 audio.
+							</audio>
+
+						</div>
+						</div>
+				}
+			</div>
+
+
+
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-12 comment-box card">
+
+
+				<h2>نظرات</h2>
+				@if (ViewBag.IsAuthenticate == "false")
+				{
+					<p class="comment-summery">برای ثبت نظر درباره این مطلب باید ابتدا وارد حساب کاربری خود شوید</p>
+				}
+				@foreach (var comment in Model.ContentComments)
+				{
+					<div class="card comment-info">
+
+						<div class="comment-data">
+							@if (string.IsNullOrEmpty(comment.User.FullName))
+							{
+								<strong>کاربر سایت</strong>
+							}
+							else
+							{
+								
+					
+								<strong>@comment.User.FullName</strong>
+							}
+							<span class="publish-data">@comment.CreationDateStr</span>
+						</div>
+						<div class="comment-desc">
+							<p>@comment.Comment</p>
+						</div>
+					</div>
+			 
+				}
+			
+
+				@if (ViewBag.IsAuthenticate == "true")
+				{
+					<div class="alert alert-danger" id="errorDivQ"></div>
+					<div class="alert alert-success" id="successDivQ">کاربر گرامی نظر شما با موفقیت ثبت گردید و پس از تایید در وب سایت نمایش داده خواهد شد.</div>
+						<div class="card comment-input">
+							<p>@ViewBag.Name عزیز شما می توانید نظر خود را راجع به این محتوا ثبت نمایید</p>
+
+							<textarea class="form-control" id="txtComment" placeholder="نظر شما"></textarea>
+
+							<button class="btn btn-primary" id="btnSubmitComment">ثبت نظر</button>
+						</div>
+				}
+			
+			</div>
+		</div>
+	</div>
+
+</section>
+
+@section scripts{
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#btnSubmitComment").click(function () {
+				var messageVal = $('#txtComment').val();
+
+				if (messageVal !== "") {
+					var url = window.location.pathname;
+					var urlParam = decodeURIComponent(url.substring(url.lastIndexOf('/') + 1));
+
+
+					$.ajax(
+						{
+							url: "/contents/SubmitComment",
+							data: {  message: messageVal, urlParam: urlParam },
+							type: "GET"
+						}).done(function (result) {
+						if (result === 'true') {
+							$('#errorDivQ').css('display', 'none');
+							$('#successDivQ').css('display', 'block');
+						} else if (result === 'invalidUser') {
+							$('#errorDivQ').css('display', 'block');
+							$('#successDivQ').css('display', 'none');
+							$('#errorDivQ').html('کاربر گرامی، برای ثبت نظر حتما باید وارد حساب کاربری خود شوید.');
+						}
+
+						else {
+							$('#errorDivQ').css('display', 'block');
+							$('#successDivQ').css('display', 'none');
+							$('#errorDivQ').html('کاربر گرامی، متاسفانه ثبت با خطا مواجه شده است. لطفا مجدادا تلاش کنید.');
+						}
+					});
+				}
+				else {
+					$('#errorDivQ').css('display', 'block');
+					$('#successDivQ').css('display', 'none');
+					$('#errorDivQ').html('متن نظر خود را وارد نمایید.');
+
+				}
+			});
+		});
+	</script>
+}
+

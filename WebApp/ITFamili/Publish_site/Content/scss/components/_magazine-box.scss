@@ -1,0 +1,13 @@
+.magazine-box {
+    border-radius: 35px;
+    border-top-right-radius: 80px;
+    background-color: #8da9f9;
+    margin: 30px;
+    .magazine-image {
+        object-fit: contain;
+        border-radius: 35px;
+        border-top-right-radius: 80px;
+        transform: translateX(10px) translateY(-10px);
+    }
+}
+

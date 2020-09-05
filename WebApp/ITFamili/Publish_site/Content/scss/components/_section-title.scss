@@ -1,0 +1,34 @@
+.section-title-container {
+    position: relative;
+  .number {
+    font-size: 10rem;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    margin-bottom: 0;
+    font-size: 1.3rem;
+  }
+}
+
+.section-title-container.right {
+  .title {
+    right: 6rem;
+  }
+}
+.section-title-container.left {
+    text-align: left;
+  .title {
+    left: 6rem;
+  }
+  direction: ltr;
+}
+.section-title-container.red {
+  color: $redColor;
+}
+.section-title-container.purple {
+  color: $bgColor;
+}

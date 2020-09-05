@@ -1,0 +1,54 @@
+﻿@model ViewModels.MagzineDetailViewModel
+
+@{
+	ViewBag.Title = Model.Magzine.Title;
+}
+
+ 
+ <section class="page-title">
+    <div class="container text-center">
+        <h1>
+            آرشیو مجلات
+        </h1>
+        <div>
+            <span><a href="/">صفحه اصلی</a></span>
+            /
+            <span><a href="/magzine">آرشیو مجلات</a></span>
+            /
+            <span>
+                @Model.Magzine.Title
+            </span>
+        </div>
+    </div>
+</section>
+
+<section class="section-magazine">
+	<div class="container mag-detail-contaoner">
+		<div class="row justify-content-around">
+			<div class="col-lg-5 col-12">
+				@*<div class="section-title-container right">
+					<span class="number">01</span>
+					<h2 class="title">
+						@Model.Magzine.Title
+					</h2>
+				</div>*@
+				<div class="text-with-scroll mCustomScrollbar margin-minus" dir="ltr">
+					<div class="content-inside">
+						@Html.Raw(Model.Magzine.SummerySite)
+					</div>
+				</div>
+				
+				<a href="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@Model.Magzine.FileUrl" target="_blank" class="btn btn-default">دانلود مجله</a>
+			</div>
+			<div class="col-lg-6 justify-content-end">
+				<div class="magazine-image-container">
+					<img src="@System.Web.Configuration.WebConfigurationManager.AppSettings["filesBaseUrl"]/@Model.Magzine.ImageUrl" class="magazine-img d-block img-fluid mx-auto"
+					     alt="@Model.Magzine.Title">
+					<div class="shapebg-img">
+						<img src="/img/02-magazine/shape.svg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
